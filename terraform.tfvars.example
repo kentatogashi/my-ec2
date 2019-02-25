@@ -1,0 +1,5 @@
+aws_access_key = ""
+aws_secret_key = ""
+aws_region = "ap-northeast-1"
+key_name = "id_rsa_ec2"
+public_key = "id_rsa_ec2.pub"
