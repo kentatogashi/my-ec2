@@ -91,6 +91,7 @@ resource "aws_instance" "test-ec2-instance" {
         Name = "test-env"
     }
     key_name = "${var.key_name}"
-    security_groups = ["${aws_security_group.default.id}"]
+    # security_groups = ["${aws_security_group.default.id}"]
+    vpc_security_group_ids = ["${aws_security_group.default.id}"]
     subnet_id = "${aws_subnet.subnet-uno.id}"
 }
