@@ -18,7 +18,7 @@ public_key = "id_rsa_ec2.pub"
 Rename terraform.tfvars.example.
 
 ```
-$ terraform.tfvars.example terraform.tfvars
+$ cp -p terraform.tfvars.example terraform.tfvars
 ```
 
 Generate key pair.
