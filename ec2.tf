@@ -84,3 +84,23 @@ resource "aws_instance" "my-ec2" {
     vpc_security_group_ids = ["${aws_security_group.my-security-group.id}"]
     subnet_id = "${aws_subnet.my-subnet.id}"
 }
+resource "null_resource" "preparation" {
+    triggers {
+        instance = "${aws_instance.my-ec2.id}"
+    }
+    connection {
+        host = "${aws_eip.my-eip.public_ip}"
+        user = "ec2-user"
+        private_key = "${file(var.key_name)}"
+        timeout = "60s"
+    }
+    provisioner "remote-exec" {
+        inline = [
+            "sudo yum -y update",
+            "sudo yum -y install vim"
+        ]
+    }
+}
+output "EIP for EC2 instance" {
+    value = "${aws_eip.my-eip.public_ip}"
+}
