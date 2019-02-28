@@ -1,10 +1,10 @@
-# EC2 Terraform script
+# My EC2
 
-You can get EC2 which is available ssh.
+You can get EC2 which is available ssh
 
 # Usage
 
-Configure AWS access key and secret key.
+Configure AWS access key and secret key
 
 ```
 $ cat terraform.tfvars.example
@@ -15,13 +15,13 @@ key_name = "id_rsa_ec2"
 public_key = "id_rsa_ec2.pub"
 ```
 
-Rename terraform.tfvars.example.
+Rename terraform.tfvars.example
 
 ```
 $ cp -p terraform.tfvars.example terraform.tfvars
 ```
 
-Generate key pair.
+Generate key pair
 
 ```
 $ ssh-keygen -t rsa -f id_rsa_ec2
@@ -31,8 +31,6 @@ Initialize terraform
 
 ```
 $ terraform init
-2019/02/28 12:56:14 [WARN] Invalid log level: "1". Defaulting to level: TRACE. Valid levels are: [TRACE DEBUG INFO WARN ERROR]
-
 Initializing provider plugins...
 
 The following providers do not have any version constraints in configuration,
@@ -74,7 +72,7 @@ EIP for EC2 instance = 192.168.0.3
 Test
 
 ```
-$ ssh -i id_rsa_ec2 ec2-user@192.168.0.3 'hostname'
+$ ssh -i id_rsa_ec2 ec2-user@192.168.0.3 hostname
   ip-192-168-0-3.ap-northeast-1.compute.internal
 ```
 
